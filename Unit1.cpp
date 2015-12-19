@@ -469,7 +469,6 @@ while(!feof(inp))
                 //}
 
         nrec++;
-        ShowMessage(nrec);
         }
         fclose(inp);
         ListView1->Items->Item[nrec-1]->Delete();
@@ -528,7 +527,6 @@ ComboBox3->Clear();
 Edit1->Clear();
 Edit2->Clear();
 Edit3->Clear();
-Edit4->Clear();
 Panel2->Visible = (false);
 }
 //---------------------------------------------------------------------------
@@ -681,8 +679,27 @@ TListItem *Item = ListView1->Items->Add();
 
 void __fastcall TForm1::Button10Click(TObject *Sender)
 {
-for (int i = 0 ; i < nrec ; i++)
-ShowMessage(data[i].id);        
+TListItem *Item = ListView1->Items->Add();
+        Item->Caption =data[nrec-2].mat;
+        Item->SubItems->Add(data[nrec-2].tip);
+        Item->SubItems->Add(data[nrec-2].raz);
+        Item->SubItems->Add(data[nrec-2].cena);
+        Item->SubItems->Add(data[nrec-2].vremp);
+        Item->SubItems->Add(data[nrec-2].kzak);
+        int vrempz= atoi(data[nrec-2].vremp);
+                if (vrempz!=0)
+                        {
+                        int cenaz= atoi (data[nrec-2].cena);
+                        int DnVipz= ((8*60*60)/vrempz);
+                        Item->SubItems->Add(DnVipz);
+                        int DnDohz= (DnVipz*cenaz);
+                        Item->SubItems->Add(DnDohz);
+                        int YkVrz = StrToInt (Form1->Edit4->Text);
+                        int DhVrz= ((YkVrz*60*cenaz)/vrempz);
+                       Item->SubItems->Add("LOL");
+                        Item->SubItems->Add(Edit4->Text);
+                        Item->SubItems->Add(data[nrec-2].name);
+                        }
 }
 //---------------------------------------------------------------------------
 
