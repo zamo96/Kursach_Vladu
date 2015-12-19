@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 251
-  Top = 75
+  Left = 120
+  Top = 248
   Width = 998
   Height = 534
   Caption = 'Form1'
@@ -17,7 +17,7 @@ object Form1: TForm1
     Left = 0
     Top = 0
     Width = 982
-    Height = 327
+    Height = 322
     Align = alClient
     BorderWidth = 30
     TabOrder = 0
@@ -25,7 +25,7 @@ object Form1: TForm1
       Left = 31
       Top = 31
       Width = 920
-      Height = 265
+      Height = 260
       Align = alClient
       Columns = <
         item
@@ -219,9 +219,9 @@ object Form1: TForm1
   end
   object Panel3: TPanel
     Left = 0
-    Top = 327
+    Top = 322
     Width = 982
-    Height = 169
+    Height = 174
     Align = alBottom
     AutoSize = True
     BorderWidth = 20
@@ -294,8 +294,8 @@ object Form1: TForm1
       TabOrder = 5
     end
     object Button7: TButton
-      Left = 592
-      Top = 104
+      Left = 480
+      Top = 128
       Width = 105
       Height = 25
       Caption = #1053#1072#1095#1072#1090#1100' '#1089#1086#1088#1090#1080#1088#1086#1074#1082#1091
@@ -303,8 +303,8 @@ object Form1: TForm1
       OnClick = Button7Click
     end
     object ComboBox4: TComboBox
-      Left = 288
-      Top = 104
+      Left = 176
+      Top = 128
       Width = 145
       Height = 21
       ItemHeight = 13
@@ -318,8 +318,8 @@ object Form1: TForm1
         #1042#1088#1077#1084#1103' '#1087#1088#1086#1080#1079#1074#1086#1076#1089#1090#1074#1072)
     end
     object ComboBox5: TComboBox
-      Left = 440
-      Top = 104
+      Left = 328
+      Top = 128
       Width = 145
       Height = 21
       ItemHeight = 13
@@ -330,8 +330,8 @@ object Form1: TForm1
         #1087#1086' '#1091#1073#1099#1074#1072#1085#1080#1102)
     end
     object Button8: TButton
-      Left = 840
-      Top = 104
+      Left = 896
+      Top = 120
       Width = 75
       Height = 25
       Caption = #1053#1072#1095#1072#1090#1100' '#1087#1086#1080#1089#1082
@@ -339,12 +339,12 @@ object Form1: TForm1
       OnClick = Button8Click
     end
     object Edit5: TEdit
-      Left = 712
-      Top = 104
+      Left = 776
+      Top = 120
       Width = 121
       Height = 21
       TabOrder = 10
-      Text = #1055#1086#1080#1089#1082' '#1087#1086' '#1084#1072#1090#1077#1088#1080#1072#1083#1091
+      Text = #1055#1086#1080#1089#1082
     end
     object Button9: TButton
       Left = 696
@@ -354,6 +354,18 @@ object Form1: TForm1
       Caption = #1047#1072#1075#1088#1091#1079#1080#1090#1100' '#1087#1088#1086#1080#1079#1074#1086#1076#1080#1090#1077#1083#1077#1081
       TabOrder = 11
       OnClick = Button9Click
+    end
+    object ComboBox6: TComboBox
+      Left = 616
+      Top = 120
+      Width = 145
+      Height = 21
+      ItemHeight = 13
+      TabOrder = 12
+      Text = #1042#1099#1073#1077#1088#1077#1090#1077' '#1091#1089#1083#1086#1074#1080#1077
+      Items.Strings = (
+        #1055#1086' '#1055#1088#1086#1080#1079#1074#1086#1076#1080#1090#1077#1083#1102
+        #1055#1086' '#1052#1072#1090#1077#1088#1080#1072#1083#1091)
     end
   end
   object OpenDialog1: TOpenDialog

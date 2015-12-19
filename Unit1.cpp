@@ -579,22 +579,37 @@ TListItem *Item = ListView1->Items->Add();
         }
 }
 //---------------------------------------------------------------------------
-
-
-void __fastcall TForm1::Button8Click(TObject *Sender)
+void searcher()
 {
-int pp = 0;
-  char *stroka = new char[Edit5->Text.Length()+1]; // массив со строкой
-        strcpy(stroka, Edit5->Text.c_str());
-        int p = Edit5->Text.Length(); // длина строки
+pp = 0;
+  char *stroka = new char[Form1->Edit5->Text.Length()+1]; // массив со строкой
+        strcpy(stroka, Form1->Edit5->Text.c_str());
+        int p = Form1->Edit5->Text.Length(); // длина строки
   for(int i = 0;i<nrec;i++)
-  {
+{
+   if(Form1->ComboBox6->Items->Strings[Form1->ComboBox6->ItemIndex]=="По Материалу")
+   {
         if(strncmp(data[i].mat,stroka,p)==0)
         {
         searchr[pp]=data[i];
         pp++;
         }
+
+   }
+   if(Form1->ComboBox6->Items->Strings[Form1->ComboBox6->ItemIndex]=="По Производителю")
+   {
+          if(strncmp(data[i].name,stroka,p)==0)
+        {
+        searchr[pp]=data[i];
+        pp++;
+        }
+   }
 }
+}
+
+void __fastcall TForm1::Button8Click(TObject *Sender)
+{
+searcher();
 Form1->ListView1->Clear();
 for(int i = 0 ; i<pp;i++)
 {
@@ -605,10 +620,10 @@ for(int i = 0 ; i<pp;i++)
         Item->SubItems->Add(searchr[i].cena);
         Item->SubItems->Add(searchr[i].vremp);
         Item->SubItems->Add(searchr[i].kzak);
-        int vrempz= atoi(data[i].vremp);
+        int vrempz= atoi(searchr[i].vremp);
           if (vrempz!=0)
                         {
-                        int cenaz= atoi (data[i].cena);
+                        int cenaz= atoi (searchr[i].cena);
                         int DnVipz= ((8*60*60)/vrempz);
                         Item->SubItems->Add(DnVipz);
                         int DnDohz= (DnVipz*cenaz);
@@ -617,7 +632,7 @@ for(int i = 0 ; i<pp;i++)
                         int DhVrz= ((YkVrz*60*cenaz)/vrempz);
                         Item->SubItems->Add(DhVrz);
                         Item->SubItems->Add(Edit4->Text);
-                        Item->SubItems->Add(data[i].name);
+                        Item->SubItems->Add(searchr[i].name);
                         }
         }
 }
@@ -696,7 +711,7 @@ TListItem *Item = ListView1->Items->Add();
                         Item->SubItems->Add(DnDohz);
                         int YkVrz = StrToInt (Form1->Edit4->Text);
                         int DhVrz= ((YkVrz*60*cenaz)/vrempz);
-                       Item->SubItems->Add("LOL");
+                       Item->SubItems->Add(DhVrz);
                         Item->SubItems->Add(Edit4->Text);
                         Item->SubItems->Add(data[nrec-2].name);
                         }
