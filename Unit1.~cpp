@@ -585,20 +585,20 @@ TListItem *Item = ListView1->Items->Add();
 
 void __fastcall TForm1::Button8Click(TObject *Sender)
 {
-int pp = 0;   // счетчик для поиска
+int pp = 0;
   char *stroka = new char[Edit5->Text.Length()+1]; // массив со строкой
-        strcpy(stroka, Edit5->Text.c_str());    // копируем текст из Эдита в переменную stroka
+        strcpy(stroka, Edit5->Text.c_str());
         int p = Edit5->Text.Length(); // длина строки
-  for(int i = 0;i<nrec;i++)      // пробегаем в цикле по всем элементам в массиве
+  for(int i = 0;i<nrec;i++)
   {
-        if(strncmp(data[i].mat,stroka,p)==0) // если строки равны
+        if(strncmp(data[i].mat,stroka,p)==0)
         {
-        searchr[pp]=data[i];      // то записываем в наш массив для поиска
-        pp++;                 // увеличивем счетчик на 1
+        searchr[pp]=data[i];
+        pp++;
         }
 }
 Form1->ListView1->Clear();
-for(int i = 0 ; i<pp;i++)      // заполнение листвью
+for(int i = 0 ; i<pp;i++)
 {
   TListItem *Item = ListView1->Items->Add();
         Item->Caption =searchr[i].mat;
@@ -630,28 +630,28 @@ void __fastcall TForm1::Button9Click(TObject *Sender)
 OpenDialog1->Execute();
 FILE* inp = fopen(OpenDialog1->FileName.c_str(), "r");
 nrec2 = 0 ;
-while(!feof(inp))         // загружаем файл производителей
+while(!feof(inp))
         {
         memset(&proizv[nrec2], 0, sizeof(B));
-        fscanf(inp, "%s %i", &proizv[nrec2].proizvod,&proizv[nrec2].id) ; // копируем имя производителя и id в массив
-        nrec2++;         // увеличивем счетчик для производителей на 1 (поидее можно было и без него т.к счетчик материалов равен производителей)
+        fscanf(inp, "%s %i", &proizv[nrec2].proizvod,&proizv[nrec2].id) ;
+        nrec2++;
         }
 
-        fclose(inp);  //закрываем файл
+        fclose(inp);
 
 
-for (int j = 0; j<nrec2-1;j++)    // пробегаем по всем производителям
+for (int j = 0; j<nrec2-1;j++)
 {
-  for(int i = 0 ; i < nrec-1;i++)       //пробегаем по всем материалам
+  for(int i = 0 ; i < nrec-1;i++)
   {
-    if(proizv[j].id==data[i].id)        //ищем совпадения id
+    if(proizv[j].id==data[i].id)
     {
-    strcpy(data[i].name,proizv[j].proizvod);   // копируем имя производителя в  элементы массива структуры (в имя)
+    strcpy(data[i].name,proizv[j].proizvod);
       }
   }
 }
 Form1->ListView1->Clear();
-for(int i = 0;i<nrec-1;i++)     // заполняем листвью
+for(int i = 0;i<nrec-1;i++)
 {
 TListItem *Item = ListView1->Items->Add();
         Item->Caption =data[i].mat;
@@ -682,7 +682,7 @@ TListItem *Item = ListView1->Items->Add();
 void __fastcall TForm1::Button10Click(TObject *Sender)
 {
 for (int i = 0 ; i < nrec ; i++)
-ShowMessage(data[i].id);
+ShowMessage(data[i].id);        
 }
 //---------------------------------------------------------------------------
 
