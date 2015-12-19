@@ -1,8 +1,8 @@
 object Form1: TForm1
-  Left = 205
-  Top = 257
+  Left = 62
+  Top = 202
   Width = 998
-  Height = 539
+  Height = 534
   Caption = 'Form1'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -17,7 +17,7 @@ object Form1: TForm1
     Left = 0
     Top = 0
     Width = 982
-    Height = 332
+    Height = 327
     Align = alClient
     BorderWidth = 30
     TabOrder = 0
@@ -25,7 +25,7 @@ object Form1: TForm1
       Left = 31
       Top = 31
       Width = 920
-      Height = 270
+      Height = 265
       Align = alClient
       Columns = <
         item
@@ -193,9 +193,9 @@ object Form1: TForm1
     end
     object Button4: TButton
       Left = 261
-      Top = 160
+      Top = 168
       Width = 89
-      Height = 33
+      Height = 25
       Caption = #1054#1050
       TabOrder = 6
       OnClick = Button4Click
@@ -219,7 +219,7 @@ object Form1: TForm1
   end
   object Panel3: TPanel
     Left = 0
-    Top = 332
+    Top = 327
     Width = 982
     Height = 169
     Align = alBottom

@@ -16,26 +16,26 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 {
 }
 //---------------------------------------------------------------------------
-void sort_po_mat()              // сортировка по материалу
+void sort_po_mat()    // сортировка по материалу
 {
- for(int i = 0;i < nrec-1; i++)    //запускается цикл который обходит все элементы массива тк счетчик у нас  nrec = 11  при загрузке а элементов у нас 10 и первый элемент у нас начинается с 0
+ for(int i = 0;i < nrec-1; i++)  //запускается цикл который обходит все элементы массива тк счетчик у нас  nrec = 11  при загрузке а элементов у нас 10 и первый элемент у нас начинается с 0
     {
     for(int j = i ; j<nrec-1;j++)   //второй цикл который тоже проходит все элементы массива
     {
-    if(criterie == "по возрастанию")  //критерий в комбобоксе
+    if(criterie == "по возрастанию")      //критерий в комбобоксе
     {
-     if(data[i].mat[0]>data[j].mat[0])   // если первая буква материала больше первой буквы последующего то
-     swap(data[i],data[j]);                 // меняются элементы массива местам
+     if(data[i].mat[0]>data[j].mat[0])  // если первая буква материала больше первой буквы последующего то
+     swap(data[i],data[j]);               // меняются элементы массива местам
      }
-    else if(criterie == "по убыванию")            //критерий в комбобоксе
+    else if(criterie == "по убыванию")        //критерий в комбобоксе
     {
-     if(data[i].mat[0]<data[j].mat[0])               //наооборот если меньше
+     if(data[i].mat[0]<data[j].mat[0])    //наооборот если меньше
      swap(data[i],data[j]);
      }
      }
     }
 }
-void sort_po_tip()                         //сортировка по типу абсолютно все тоже самое только с другими элементами структуры
+void sort_po_tip()                    //сортировка по типу абсолютно все тоже самое только с другими элементами структуры
 {
  for(int i = 0;i < nrec-1; i++)
     {
@@ -52,7 +52,7 @@ void sort_po_tip()                         //сортировка по типу абсолютно все то
      }
     }
 }
-void sort_po_razm()         //сортировка по размеру
+void sort_po_razm()      //сортировка по размеру
 {
  for(int i = 0;i < nrec-1; i++)
     {
@@ -70,7 +70,7 @@ void sort_po_razm()         //сортировка по размеру
     }
 }
 
-void sort_po_cen()       //сортировка по цене
+void sort_po_cen()   //сортировка по цене
 {
  for(int i = 0;i < nrec-1; i++)
     {
@@ -78,7 +78,7 @@ void sort_po_cen()       //сортировка по цене
     {
     if(criterie == "по возрастанию")
     {
-     if(atoi(data[i].cena)>atoi(data[j].cena))      //функция atoi   переводит в int тоесть были элементы в чар там например 1 2 5 8 он переводит в число 1258
+     if(atoi(data[i].cena)>atoi(data[j].cena))    //функция atoi   переводит в int тоесть были элементы в чар там например 1 2 5 8 он переводит в число 1258
      swap(data[i],data[j]);
      }
     else if(criterie == "по убыванию")
@@ -87,7 +87,7 @@ void sort_po_cen()       //сортировка по цене
      }
     }
 }
-void sort_po_time()            //сортировка по времени
+void sort_po_time()  //сортировка по времени
 {
  for(int i = 0;i < nrec-1; i++)
     {
@@ -110,11 +110,11 @@ void sort_po_time()            //сортировка по времени
 void sort()
 {
  Form1->ListView1->Clear();
- criterie = Form1->ComboBox5->Items->Strings[Form1->ComboBox5->ItemIndex]  ;  // записывается в переменную criterie выбранная строка в комбобокс
- uslovie = Form1->ComboBox4->Items->Strings[Form1->ComboBox4->ItemIndex];    // здесь тоже самое только условие
-      if(uslovie=="Материал")     //если условие у нас материал то вызываем сортировку по материалу
+ criterie = Form1->ComboBox5->Items->Strings[Form1->ComboBox5->ItemIndex]  ;  // записывается в переменную  criterie
+ uslovie = Form1->ComboBox4->Items->Strings[Form1->ComboBox4->ItemIndex];
+      if(uslovie=="Материал")
       sort_po_mat();
-      else if(uslovie == "Тип листа")     //остальное тоже самое только проверяется другое условие
+      else if(uslovie == "Тип листа")
       sort_po_tip();
       else if(uslovie == "Размер")
       sort_po_razm();
@@ -585,20 +585,20 @@ TListItem *Item = ListView1->Items->Add();
 
 void __fastcall TForm1::Button8Click(TObject *Sender)
 {
-int pp = 0;   // счетчик для поиска
+int pp = 0;
   char *stroka = new char[Edit5->Text.Length()+1]; // массив со строкой
-        strcpy(stroka, Edit5->Text.c_str());    // копируем текст из Эдита в переменную stroka
+        strcpy(stroka, Edit5->Text.c_str());
         int p = Edit5->Text.Length(); // длина строки
-  for(int i = 0;i<nrec;i++)      // пробегаем в цикле по всем элементам в массиве
+  for(int i = 0;i<nrec;i++)
   {
-        if(strncmp(data[i].mat,stroka,p)==0) // если строки равны
+        if(strncmp(data[i].mat,stroka,p)==0)
         {
-        searchr[pp]=data[i];      // то записываем в наш массив для поиска
-        pp++;                 // увеличивем счетчик на 1
+        searchr[pp]=data[i];
+        pp++;
         }
 }
 Form1->ListView1->Clear();
-for(int i = 0 ; i<pp;i++)      // заполнение листвью
+for(int i = 0 ; i<pp;i++)
 {
   TListItem *Item = ListView1->Items->Add();
         Item->Caption =searchr[i].mat;
@@ -630,28 +630,28 @@ void __fastcall TForm1::Button9Click(TObject *Sender)
 OpenDialog1->Execute();
 FILE* inp = fopen(OpenDialog1->FileName.c_str(), "r");
 nrec2 = 0 ;
-while(!feof(inp))         // загружаем файл производителей
+while(!feof(inp))
         {
         memset(&proizv[nrec2], 0, sizeof(B));
-        fscanf(inp, "%s %i", &proizv[nrec2].proizvod,&proizv[nrec2].id) ; // копируем имя производителя и id в массив
-        nrec2++;         // увеличивем счетчик для производителей на 1 (поидее можно было и без него т.к счетчик материалов равен производителей)
+        fscanf(inp, "%s %i", &proizv[nrec2].proizvod,&proizv[nrec2].id) ;
+        nrec2++;
         }
 
-        fclose(inp);  //закрываем файл
+        fclose(inp);
 
 
-for (int j = 0; j<nrec2-1;j++)    // пробегаем по всем производителям
+for (int j = 0; j<nrec2-1;j++)
 {
-  for(int i = 0 ; i < nrec-1;i++)       //пробегаем по всем материалам
+  for(int i = 0 ; i < nrec-1;i++)
   {
-    if(proizv[j].id==data[i].id)        //ищем совпадения id
+    if(proizv[j].id==data[i].id)
     {
-    strcpy(data[i].name,proizv[j].proizvod);   // копируем имя производителя в  элементы массива структуры (в имя)
+    strcpy(data[i].name,proizv[j].proizvod);
       }
   }
 }
 Form1->ListView1->Clear();
-for(int i = 0;i<nrec-1;i++)     // заполняем листвью
+for(int i = 0;i<nrec-1;i++)
 {
 TListItem *Item = ListView1->Items->Add();
         Item->Caption =data[i].mat;
@@ -682,7 +682,7 @@ TListItem *Item = ListView1->Items->Add();
 void __fastcall TForm1::Button10Click(TObject *Sender)
 {
 for (int i = 0 ; i < nrec ; i++)
-ShowMessage(data[i].id);
+ShowMessage(data[i].id);        
 }
 //---------------------------------------------------------------------------
 
