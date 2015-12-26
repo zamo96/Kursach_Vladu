@@ -30,7 +30,7 @@ char proizvod[32];
 A data[100];
 A searchr[100];
 B proizv[100];
-int nrec,nrec2;
+int nrec,nrec2,pp;
 AnsiString criterie,uslovie;
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
@@ -71,6 +71,7 @@ __published:	// IDE-managed Components
         TButton *Button9;
         TEdit *Edit6;
         TLabel *Label9;
+        TComboBox *ComboBox6;
         void __fastcall ComboBox1Change(TObject *Sender);
         void __fastcall ComboBox2Change(TObject *Sender);
         void __fastcall Edit1Change(TObject *Sender);

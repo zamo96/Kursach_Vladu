@@ -86,10 +86,10 @@ __published:	// IDE-managed Components
         void __fastcall Button7Click(TObject *Sender);
         void __fastcall Button8Click(TObject *Sender);
         void __fastcall Button9Click(TObject *Sender);
-        void __fastcall Button10Click(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);
+        void TForm1::buildlw(A* structer,int schetchik);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;
